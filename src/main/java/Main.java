@@ -1,31 +1,22 @@
-public class ToDoList {
+public class Main {
+    public static void main(String[] args) {
 
-    private String description;
-    private boolean completed;
+        User[] users = new User[2];
+        users[0] = new User("Beth-Ann");
+        users[1] = new User("Tyler");
 
-    public Task(String description) {
-        this.description = description;
-        this.completed = false; // Tasks are pending by default
-    }
+        users[0].addTask("Finish project");
+        users[0].addTask("Make vet appointment");
 
-    // Marks the task as completed.
-    public void markCompleted() {
-        this.completed = true;
-    }
+        users[1].addTask("Buy new fishing line");
+        users[1].addTask("Fix Skidoo");
 
-    // Getter for description.
-    public String getDescription() {
-        return description;
-    }
+        users[0].markTaskCompleted("Finish project");
+        users[1].markTaskCompleted("Fix Skidoo");
 
-    // Getter for the completion status.
-    public boolean isCompleted() {
-        return completed;
-    }
-
-    // Returns a string representation of the task.
-    @Override
-    public String toString() {
-        return description + " [" + (completed ? "Completed" : "Pending") + "]";
+        for (User user : users) {
+            user.printTasks();
+            System.out.println();
+        }
     }
 }
